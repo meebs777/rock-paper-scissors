@@ -2,11 +2,21 @@
 function getComputerChoice () {
     let num = Math.floor(Math.random()*3);
     if (num === 0){
-        return "rock"
+        return "rock";
     } else if (num === 1){
-        return "paper"
+        return "paper";
     } else {
-        return "scissors"
+        return "scissors";
+    }
+}
+
+// This function returns the players choice in the game after a prompt
+function getHumanChoice () {
+    let choice = prompt("Rock, Paper or Scissors?");
+    if (choice === "Rock" || choice === "Paper" || choice === "Scissors") {
+        return choice.toLowerCase();
+    } else {
+       return getHumanChoice();
     }
 }
 
