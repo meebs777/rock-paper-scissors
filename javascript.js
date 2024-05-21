@@ -25,6 +25,33 @@ function getHumanChoice () {
 let humanScore = 0;
 let computerScore = 0;
 
+// Function that takes the human and computer player choices as arguments, plays a single round, increments the round winner’s score and logs a winner announcement.
 function playRound (humanChoice,computerChoice) {
+    if (humanChoice === computerChoice) {
+        console.log(`You Tie! Choosing the same option`);
+    } else if (humanChoice === "paper" && computerChoice === "rock" ) {
+        console.log("You win! Paper beats Rock!");
+        humanScore++;
+    } else if (humanChoice === "paper" && computerChoice === "scissors" ) {
+        console.log("You lose! Scissors beats Paper!");
+        computerScore++;
+    } else if (humanChoice === "rock" && computerChoice === "paper" ) {
+        console.log("You lose! Paper beats Rock!");
+        computerScore++;
+    }  else if (humanChoice === "rock" && computerChoice === "scissors" ) {
+        console.log("You win! Rock beats Scissors!");
+        humanScore++;
+    }  else if (humanChoice === "scissors" && computerChoice === "rock" ) {
+        console.log("You lose! Rock beats Scissors!");
+        computerScore++;
+    }   else if (humanChoice === "scissors" && computerChoice === "paper" ) {
+        console.log("You win! Scissors beats Paper!");
+        humanScore++;
+    }
 
 }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
