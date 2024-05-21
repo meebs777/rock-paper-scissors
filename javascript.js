@@ -13,10 +13,18 @@ function getComputerChoice () {
 // This function returns the players choice in the game after a prompt
 function getHumanChoice () {
     let choice = prompt("Rock, Paper or Scissors?");
-    if (choice === "Rock" || choice === "Paper" || choice === "Scissors") {
+    if (choice.toLowerCase() === "rock" || choice.toLowerCase() === "paper" || choice.toLowerCase() === "scissors") {
         return choice.toLowerCase();
     } else {
        return getHumanChoice();
     }
 }
 
+
+// Start the game off at 0 for both computer and player
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound (humanChoice,computerChoice) {
+
+}
