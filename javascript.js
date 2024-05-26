@@ -31,7 +31,11 @@ function playGame() {
     let computerScore = 0;
 
     // Function that takes the human and computer player choices as arguments, plays a single round, increments the round winner’s score and logs a winner announcement.
-    function playRound (humanChoice,computerChoice) {
+    function playRound (event) {
+        let humanChoice = event.target.innerText;
+        humanChoice = humanChoice.toLowerCase();
+        let computerChoice = getComputerChoice();
+        console.log(computerChoice);
         if (humanChoice === computerChoice) {
             console.log(`You Tie! Choosing the same option`);
         } else if (humanChoice === "paper" && computerChoice === "rock" ) {
@@ -54,21 +58,21 @@ function playGame() {
             humanScore++;
         }
 
-    }
-
         
+    }
 
     
-    //Play five rounds and announce the winner after
-    for (let roundNum = 0; roundNum < 5; roundNum++) {
-        // Assign choices respectively in a variable
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+        
+    const btns = document.querySelectorAll("button");
+    btns.forEach((btn) => {
+        btn.addEventListener("click", playRound);
+    })
 
-        //Play each round
-        playRound(humanSelection,computerSelection);
-    }
+    
+    
 
+    
+    
     if(humanScore > computerScore) {
         console.log(`You beat the computer ${humanScore}-${computerScore} after 5 rounds!`);
     } else if (computerScore > humanScore){
